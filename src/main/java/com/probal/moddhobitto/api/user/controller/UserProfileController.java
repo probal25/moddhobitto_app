@@ -21,14 +21,14 @@ public class UserProfileController {
     @GetMapping("/user_profile")
     public ResponseEntity<?> getUserProfile() {
 
-        AppUser loggedInUserName = activeContextHolder.getLoggedInUserName();
-        if (loggedInUserName == null) {
+        AppUser loggedInUser = activeContextHolder.getLoggedInUserName();
+        if (loggedInUser == null) {
             return ResponseEntity
                     .badRequest()
                     .body("No logged in user found");
         }
 
-        UserProfileDto userProfileDto = UserProfileDto.from(loggedInUserName);
+        UserProfileDto userProfileDto = UserProfileDto.from(loggedInUser);
 
         return ResponseEntity.ok(userProfileDto);
     }
