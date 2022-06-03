@@ -1,6 +1,6 @@
-package com.probal.moddhobitto.auth.repository;
+package com.probal.moddhobitto.core.auth.repository;
 
-import com.probal.moddhobitto.auth.entity.AppUser;
+import com.probal.moddhobitto.core.auth.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

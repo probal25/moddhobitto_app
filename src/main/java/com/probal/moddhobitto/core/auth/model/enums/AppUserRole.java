@@ -1,4 +1,4 @@
-package com.probal.moddhobitto.auth.model.enums;
+package com.probal.moddhobitto.core.auth.model.enums;
 
 public enum AppUserRole {
 

@@ -1,13 +1,12 @@
-package com.probal.moddhobitto.auth.util;
+package com.probal.moddhobitto.core.auth.util;
 
-import com.probal.moddhobitto.auth.filter.AuthTokenFilter;
-import com.probal.moddhobitto.auth.model.AppUserDetails;
+import com.probal.moddhobitto.core.auth.filter.AuthTokenFilter;
+import com.probal.moddhobitto.core.auth.model.AppUserDetails;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;

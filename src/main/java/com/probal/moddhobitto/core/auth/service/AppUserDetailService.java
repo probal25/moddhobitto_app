@@ -1,8 +1,8 @@
-package com.probal.moddhobitto.auth.service;
+package com.probal.moddhobitto.core.auth.service;
 
-import com.probal.moddhobitto.auth.entity.AppUser;
-import com.probal.moddhobitto.auth.model.AppUserDetails;
-import com.probal.moddhobitto.auth.repository.AppUserRepository;
+import com.probal.moddhobitto.core.auth.entity.AppUser;
+import com.probal.moddhobitto.core.auth.model.AppUserDetails;
+import com.probal.moddhobitto.core.auth.repository.AppUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

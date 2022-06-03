@@ -1,9 +1,8 @@
-package com.probal.moddhobitto.auth.filter;
+package com.probal.moddhobitto.core.auth.filter;
 
-import com.probal.moddhobitto.auth.service.AppUserDetailService;
-import com.probal.moddhobitto.auth.util.JwtUtils;
+import com.probal.moddhobitto.core.auth.service.AppUserDetailService;
+import com.probal.moddhobitto.core.auth.util.JwtUtils;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

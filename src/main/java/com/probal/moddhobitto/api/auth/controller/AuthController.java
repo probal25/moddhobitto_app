@@ -1,14 +1,18 @@
 package com.probal.moddhobitto.api.auth.controller;
 
 import com.probal.moddhobitto.api.auth.dto.AppUserDto;
+import com.probal.moddhobitto.api.auth.response.ErrorResponse;
 import com.probal.moddhobitto.api.auth.response.JwtResponse;
 import com.probal.moddhobitto.api.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -25,7 +29,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             return ResponseEntity
                     .badRequest()
-                    .body(bindingResult);
+                    .body(ErrorResponse.create(bindingResult, HttpStatus.BAD_REQUEST.value()));
         }
 
         if (authService.isUserExists(signUpRequest.getPhone())) {
@@ -44,7 +48,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             return ResponseEntity
                     .badRequest()
-                    .body(bindingResult);
+                    .body(ErrorResponse.create(bindingResult, HttpStatus.BAD_REQUEST.value()));
         }
         JwtResponse response = authService.authenticateAppUser(loginRequest);
         return ResponseEntity.ok(response);

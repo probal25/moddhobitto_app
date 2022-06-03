@@ -1,7 +1,7 @@
-package com.probal.moddhobitto.auth.model;
+package com.probal.moddhobitto.core.auth.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.probal.moddhobitto.auth.entity.AppUser;
+import com.probal.moddhobitto.core.auth.entity.AppUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

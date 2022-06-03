@@ -1,7 +1,7 @@
-package com.probal.moddhobitto.auth.entity;
+package com.probal.moddhobitto.core.auth.entity;
 
 
-import com.probal.moddhobitto.auth.model.enums.AppUserRole;
+import com.probal.moddhobitto.core.auth.model.enums.AppUserRole;
 import lombok.Data;
 
 import javax.persistence.*;

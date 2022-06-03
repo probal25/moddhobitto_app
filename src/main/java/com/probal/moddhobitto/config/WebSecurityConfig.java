@@ -1,8 +1,8 @@
 package com.probal.moddhobitto.config;
 
-import com.probal.moddhobitto.auth.filter.AuthTokenFilter;
-import com.probal.moddhobitto.auth.service.AppUserDetailService;
-import com.probal.moddhobitto.auth.util.AuthEntryPointJwt;
+import com.probal.moddhobitto.core.auth.filter.AuthTokenFilter;
+import com.probal.moddhobitto.core.auth.service.AppUserDetailService;
+import com.probal.moddhobitto.core.auth.util.AuthEntryPointJwt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

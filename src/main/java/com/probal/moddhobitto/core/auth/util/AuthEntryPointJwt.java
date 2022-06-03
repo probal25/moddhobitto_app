@@ -1,4 +1,4 @@
-package com.probal.moddhobitto.auth.util;
+package com.probal.moddhobitto.core.auth.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

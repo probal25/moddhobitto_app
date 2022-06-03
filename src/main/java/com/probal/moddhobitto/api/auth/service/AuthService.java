@@ -2,13 +2,12 @@ package com.probal.moddhobitto.api.auth.service;
 
 import com.probal.moddhobitto.api.auth.dto.AppUserDto;
 import com.probal.moddhobitto.api.auth.response.JwtResponse;
-import com.probal.moddhobitto.auth.entity.AppUser;
-import com.probal.moddhobitto.auth.model.AppUserDetails;
-import com.probal.moddhobitto.auth.model.enums.AppUserRole;
-import com.probal.moddhobitto.auth.repository.AppUserRepository;
-import com.probal.moddhobitto.auth.util.JwtUtils;
+import com.probal.moddhobitto.core.auth.entity.AppUser;
+import com.probal.moddhobitto.core.auth.model.AppUserDetails;
+import com.probal.moddhobitto.core.auth.model.enums.AppUserRole;
+import com.probal.moddhobitto.core.auth.repository.AppUserRepository;
+import com.probal.moddhobitto.core.auth.util.JwtUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
