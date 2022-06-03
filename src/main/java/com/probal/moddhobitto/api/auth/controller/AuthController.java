@@ -5,14 +5,12 @@ import com.probal.moddhobitto.api.auth.response.ErrorResponse;
 import com.probal.moddhobitto.api.auth.response.JwtResponse;
 import com.probal.moddhobitto.api.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Objects;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

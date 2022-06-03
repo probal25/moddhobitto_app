@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class AppUserDetailService implements UserDetailsService {
     private final AppUserRepository appUserRepository;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
 
         AppUser appUser = appUserRepository.findAppUserByPhone(phone)
