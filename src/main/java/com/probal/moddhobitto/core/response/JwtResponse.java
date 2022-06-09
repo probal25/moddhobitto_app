@@ -1,4 +1,4 @@
-package com.probal.moddhobitto.api.auth.response;
+package com.probal.moddhobitto.core.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

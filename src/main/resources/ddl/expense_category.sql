@@ -1,0 +1,15 @@
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Housing', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Transportation', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Food', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Utilities', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Clothing', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Medical/Healthcare', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Insurance', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Household Items/Supplies', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Personal', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Debt', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Retirement', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Education', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Savings', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Gifts/Donations', null);
+INSERT INTO expense_category (active, created_at, custom_field1, custom_field2, custom_field3, description, name, updated_at) VALUES (true, '2022-06-09 17:33:35', null, null, null, null, 'Entertainment ', null);

@@ -31,7 +31,7 @@ public class AppUser {
     @ElementCollection
     private Set<AppUserRole> roles;
 
-    private boolean isActive;
+    private boolean active;
 
     private Date createdAt;
 

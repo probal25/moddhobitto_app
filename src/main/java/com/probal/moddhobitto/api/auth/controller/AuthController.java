@@ -1,9 +1,9 @@
 package com.probal.moddhobitto.api.auth.controller;
 
 import com.probal.moddhobitto.api.auth.dto.AppUserDto;
-import com.probal.moddhobitto.api.auth.response.ErrorResponse;
-import com.probal.moddhobitto.api.auth.response.JwtResponse;
-import com.probal.moddhobitto.api.auth.service.AuthService;
+import com.probal.moddhobitto.core.response.ErrorResponse;
+import com.probal.moddhobitto.core.response.JwtResponse;
+import com.probal.moddhobitto.core.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

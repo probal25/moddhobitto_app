@@ -1,7 +1,7 @@
-package com.probal.moddhobitto.api.auth.service;
+package com.probal.moddhobitto.core.auth.service;
 
 import com.probal.moddhobitto.api.auth.dto.AppUserDto;
-import com.probal.moddhobitto.api.auth.response.JwtResponse;
+import com.probal.moddhobitto.core.response.JwtResponse;
 import com.probal.moddhobitto.core.auth.entity.AppUser;
 import com.probal.moddhobitto.core.auth.model.AppUserDetails;
 import com.probal.moddhobitto.core.auth.model.enums.AppUserRole;
