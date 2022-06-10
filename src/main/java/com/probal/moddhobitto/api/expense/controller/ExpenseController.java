@@ -5,10 +5,7 @@ import com.probal.moddhobitto.core.expense.model.ExpenseCategory;
 import com.probal.moddhobitto.core.expense.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,8 +31,28 @@ public class ExpenseController {
     @GetMapping("/category/{id}")
     public ResponseEntity<?> getCategory(@PathVariable Long id) {
 
-        ExpenseCategoryDto expenseCategory = ExpenseCategoryDto.from(expenseService.getExpenseCategoryById(id));
-        return ResponseEntity.ok(expenseCategory);
+        ExpenseCategoryDto expenseCategoryResponse = ExpenseCategoryDto.from(expenseService.getExpenseCategoryById(id));
+        return ResponseEntity.ok(expenseCategoryResponse);
+
+    }
+
+    @PostMapping("/category")
+    public ResponseEntity<?> addCategory(@RequestBody ExpenseCategoryDto expenseCategoryDto) {
+
+        ExpenseCategory expenseCategory = ExpenseCategoryDto.to(expenseCategoryDto);
+        expenseService.saveCategory(expenseCategory);
+
+        return ResponseEntity.ok("Category Added");
+
+    }
+
+    @PutMapping("/categoty/{id}")
+    public ResponseEntity<?> updateCategory(@PathVariable Long id,
+                                            @RequestBody ExpenseCategoryDto expenseCategoryDto) {
+
+        ExpenseCategory existingExpenseCategory = ExpenseCategoryDto.to(expenseCategoryDto);
+        expenseService.updateExpenseCategory(id, existingExpenseCategory);
+        return ResponseEntity.ok("Category Updated with id -> " + id);
 
     }
 

@@ -4,6 +4,8 @@ import com.probal.moddhobitto.core.expense.model.ExpenseCategory;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Builder
 public class ExpenseCategoryDto {
@@ -22,4 +24,13 @@ public class ExpenseCategoryDto {
                 .build();
     }
 
+    public static ExpenseCategory to(ExpenseCategoryDto expenseCategoryDto) {
+        ExpenseCategory expenseCategory = new ExpenseCategory();
+        expenseCategory.setName(expenseCategory.getName());
+        expenseCategory.setDescription(expenseCategoryDto.getDescription());
+        expenseCategory.setActive(true);
+        expenseCategory.setCreatedAt(new Date());
+
+        return expenseCategory;
+    }
 }

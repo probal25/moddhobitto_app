@@ -8,6 +8,7 @@ import com.probal.moddhobitto.core.expense.repository.ExpenseSubCategoryReposito
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,5 +27,19 @@ public class ExpenseService {
     public ExpenseCategory getExpenseCategoryById(Long id) {
 
         return expenseCategoryRepository.findById(id).orElse(null);
+    }
+
+    public void saveCategory(ExpenseCategory expenseCategory) {
+        expenseCategoryRepository.save(expenseCategory);
+    }
+
+    public void updateExpenseCategory(Long id, ExpenseCategory existingExpenseCategory) {
+        ExpenseCategory expenseCategory = expenseCategoryRepository.findById(id).orElse(null);
+        if (expenseCategory != null) {
+            expenseCategory.setName(existingExpenseCategory.getName());
+            expenseCategory.setDescription(existingExpenseCategory.getDescription());
+            expenseCategory.setUpdatedAt(new Date());
+            expenseCategoryRepository.save(expenseCategory);
+        }
     }
 }
