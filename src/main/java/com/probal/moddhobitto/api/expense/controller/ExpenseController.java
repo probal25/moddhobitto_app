@@ -46,8 +46,6 @@ public class ExpenseController {
 
     }
 
-
-
     @GetMapping("/category/{id}")
     public ResponseEntity<?> getCategory(@PathVariable Long id) {
 
