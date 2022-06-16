@@ -35,7 +35,7 @@ public class ExpenseController {
 
     }
 
-    @GetMapping("/sub-categories")
+    @GetMapping("/subcategories")
     public ResponseEntity<?> getAllExpenseSubCategories() {
 
         List<ExpenseSubCategoryDto> subCategories = expenseService.getAllExpenseSubCategories()
