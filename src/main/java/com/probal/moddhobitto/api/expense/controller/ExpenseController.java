@@ -7,6 +7,7 @@ import com.probal.moddhobitto.core.expense.model.ExpenseCategory;
 import com.probal.moddhobitto.core.expense.model.ExpenseSubCategory;
 import com.probal.moddhobitto.core.expense.service.ExpenseService;
 import com.probal.moddhobitto.core.response.ErrorResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ public class ExpenseController {
     private final ExpenseService expenseService;
 
     @GetMapping("/categories")
+    @Operation(description = "Read All Expense Categories")
     public ResponseEntity<?> getAllExpenseCategories() {
 
         List<ExpenseCategoryDto> categories = expenseService.getAllExpenseCategories()
@@ -36,6 +38,7 @@ public class ExpenseController {
     }
 
     @GetMapping("/subcategories")
+    @Operation(description = "Read All Expense Sub-Categories")
     public ResponseEntity<?> getAllExpenseSubCategories() {
 
         List<ExpenseSubCategoryDto> subCategories = expenseService.getAllExpenseSubCategories()
@@ -47,6 +50,7 @@ public class ExpenseController {
     }
 
     @GetMapping("/category/{id}")
+    @Operation(description = "Read Specific Expense Category by ID")
     public ResponseEntity<?> getCategory(@PathVariable Long id) {
 
         ExpenseCategoryDto expenseCategoryResponse = ExpenseCategoryDto.from(expenseService.getExpenseCategoryById(id));
@@ -55,6 +59,7 @@ public class ExpenseController {
     }
 
     @PostMapping("/category")
+    @Operation(description = "Create new Expense Category")
     public ResponseEntity<?> addCategory(@RequestBody ExpenseCategoryDto expenseCategoryDto) {
 
         ExpenseCategory expenseCategory = ExpenseCategoryDto.to(expenseCategoryDto);
@@ -65,6 +70,7 @@ public class ExpenseController {
     }
 
     @PostMapping("/subcategory")
+    @Operation(description = "Create new Expense Sub-Category")
     public ResponseEntity<?> addSubCategory(@RequestBody @Valid ExpenseSubCategoryPayload expenseSubCategoryPayload, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -85,6 +91,7 @@ public class ExpenseController {
     }
 
     @PutMapping("/category/{id}")
+    @Operation(description = "Update Specific Expense Category by ID")
     public ResponseEntity<?> updateCategory(@PathVariable Long id,
                                             @RequestBody ExpenseCategoryDto expenseCategoryDto) {
 

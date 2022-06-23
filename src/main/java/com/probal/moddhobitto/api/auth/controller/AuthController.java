@@ -4,6 +4,7 @@ import com.probal.moddhobitto.api.auth.dto.AppUserDto;
 import com.probal.moddhobitto.core.response.ErrorResponse;
 import com.probal.moddhobitto.core.response.JwtResponse;
 import com.probal.moddhobitto.core.auth.service.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
+    @Operation(description = "User Signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody AppUserDto signUpRequest,
                                           BindingResult bindingResult) {
 
@@ -41,6 +43,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Operation(description = "User login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody AppUserDto loginRequest, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
