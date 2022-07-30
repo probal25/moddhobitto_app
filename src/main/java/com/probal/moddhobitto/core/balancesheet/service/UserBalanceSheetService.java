@@ -2,6 +2,7 @@ package com.probal.moddhobitto.core.balancesheet.service;
 
 import com.probal.moddhobitto.core.balancesheet.model.UserBalanceSheet;
 import com.probal.moddhobitto.core.balancesheet.repository.UserBalanceSheetRepository;
+import com.probal.moddhobitto.core.expense.enums.Type;
 import com.probal.moddhobitto.core.expense.model.UserExpenseCategory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,9 @@ public class UserBalanceSheetService {
 
         UserBalanceSheet userBalanceSheet = new UserBalanceSheet();
 
+        if (userExpenseCategory.getType().equals(Type.EXPENSE)){
+            amount = amount.negate();
+        }
         userBalanceSheet.setAmount(amount);
         userBalanceSheet.setUser(userExpenseCategory.getUser());
         userBalanceSheet.setUserExpenseCategory(userExpenseCategory);

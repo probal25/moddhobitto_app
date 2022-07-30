@@ -1,8 +1,8 @@
 package com.probal.moddhobitto.core.expense.enums;
 
 public enum Type {
-    DEBIT("debit"),
-    CREDIT("credit");
+    INCOME("income"),
+    EXPENSE("expense");
 
     private String value;
 
