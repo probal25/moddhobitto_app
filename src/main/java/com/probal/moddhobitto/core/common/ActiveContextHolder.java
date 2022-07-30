@@ -13,7 +13,7 @@ public class ActiveContextHolder {
 
     public final AppUserRepository appUserRepository;
 
-    public AppUser getLoggedInUserName() {
+    public AppUser getLoggedInUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails) principal).getUsername();
 

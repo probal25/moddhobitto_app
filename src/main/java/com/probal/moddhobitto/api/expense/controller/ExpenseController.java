@@ -2,10 +2,12 @@ package com.probal.moddhobitto.api.expense.controller;
 
 import com.probal.moddhobitto.api.expense.dto.ExpenseCategoryDto;
 import com.probal.moddhobitto.api.expense.dto.ExpenseSubCategoryDto;
-import com.probal.moddhobitto.api.expense.payload.ExpenseSubCategoryPayload;
+import com.probal.moddhobitto.api.expense.payload.UserExpenseCategoryPayload;
+import com.probal.moddhobitto.core.auth.entity.AppUser;
+import com.probal.moddhobitto.core.common.ActiveContextHolder;
 import com.probal.moddhobitto.core.expense.model.ExpenseCategory;
-import com.probal.moddhobitto.core.expense.model.ExpenseSubCategory;
 import com.probal.moddhobitto.core.expense.service.ExpenseService;
+import com.probal.moddhobitto.core.expense.service.UserExpenseCategoryService;
 import com.probal.moddhobitto.core.response.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,10 @@ public class ExpenseController {
 
     private final ExpenseService expenseService;
 
+    private final UserExpenseCategoryService userExpenseCategoryService;
+
+    private final ActiveContextHolder contextHolder;
+
     @GetMapping("/categories")
     @Operation(description = "Read All Expense Categories")
     public ResponseEntity<?> getAllExpenseCategories() {
@@ -37,11 +43,12 @@ public class ExpenseController {
 
     }
 
-    @GetMapping("/subcategories")
+    @GetMapping("/user_expense_categories")
     @Operation(description = "Read All Expense Sub-Categories")
     public ResponseEntity<?> getAllExpenseSubCategories() {
 
-        List<ExpenseSubCategoryDto> subCategories = expenseService.getAllExpenseSubCategories()
+        AppUser user = contextHolder.getLoggedInUser();
+        List<ExpenseSubCategoryDto> subCategories = userExpenseCategoryService.getUserExpenseCategories(user)
                 .stream()
                 .map(ExpenseSubCategoryDto::from)
                 .collect(Collectors.toList());
@@ -69,16 +76,16 @@ public class ExpenseController {
 
     }
 
-    @PostMapping("/subcategory")
-    @Operation(description = "Create new Expense Sub-Category")
-    public ResponseEntity<?> addSubCategory(@RequestBody @Valid ExpenseSubCategoryPayload expenseSubCategoryPayload, BindingResult bindingResult) {
+    @PostMapping("/add_user_expense_category")
+    @Operation(description = "Add Expense details for user")
+    public ResponseEntity<?> addSubCategory(@RequestBody @Valid UserExpenseCategoryPayload userExpenseCategoryPayload, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity
                     .badRequest()
                     .body(ErrorResponse.create(bindingResult, HttpStatus.BAD_REQUEST.value()));
         }
-        expenseService.saveSubCategory(expenseSubCategoryPayload, bindingResult);
+        userExpenseCategoryService.saveUserExpenseDetails(userExpenseCategoryPayload, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity

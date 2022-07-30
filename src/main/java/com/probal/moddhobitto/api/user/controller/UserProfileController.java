@@ -23,7 +23,7 @@ public class UserProfileController {
     @Operation(description = "Read Logged In User Profile")
     public ResponseEntity<?> getUserProfile() {
 
-        AppUser loggedInUser = activeContextHolder.getLoggedInUserName();
+        AppUser loggedInUser = activeContextHolder.getLoggedInUser();
         if (loggedInUser == null) {
             return ResponseEntity
                     .badRequest()

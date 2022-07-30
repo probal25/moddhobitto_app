@@ -1,6 +1,6 @@
 package com.probal.moddhobitto.api.expense.dto;
 
-import com.probal.moddhobitto.core.expense.model.ExpenseSubCategory;
+import com.probal.moddhobitto.core.expense.model.UserExpenseCategory;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,12 +16,12 @@ public class ExpenseSubCategoryDto {
 
     private String description;
 
-    public static ExpenseSubCategoryDto from(ExpenseSubCategory expenseSubCategory) {
+    public static ExpenseSubCategoryDto from(UserExpenseCategory userExpenseCategory) {
         return ExpenseSubCategoryDto.builder()
-                .id(expenseSubCategory.getId())
-                .name(expenseSubCategory.getName())
-                .parentCategory(ExpenseCategoryDto.from(expenseSubCategory.getParentExpenseCategory()))
-                .description(expenseSubCategory.getDescription())
+                .id(userExpenseCategory.getId())
+                .name(userExpenseCategory.getName())
+                .parentCategory(ExpenseCategoryDto.from(userExpenseCategory.getParentExpenseCategory()))
+                .description(userExpenseCategory.getDescription())
                 .build();
     }
 
