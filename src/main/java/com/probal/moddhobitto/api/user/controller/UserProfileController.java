@@ -4,6 +4,9 @@ package com.probal.moddhobitto.api.user.controller;
 import com.probal.moddhobitto.api.user.dto.UserProfileDto;
 import com.probal.moddhobitto.core.auth.entity.AppUser;
 import com.probal.moddhobitto.core.common.ActiveContextHolder;
+import com.probal.moddhobitto.core.userprofile.model.UserProfile;
+import com.probal.moddhobitto.core.userprofile.repository.UserProfileRepository;
+import com.probal.moddhobitto.core.userprofile.service.UserProfileService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,8 @@ public class UserProfileController {
 
     private final ActiveContextHolder activeContextHolder;
 
+    private final UserProfileService profileService;
+
     @GetMapping("/user_profile")
     @Operation(description = "Read Logged In User Profile")
     public ResponseEntity<?> getUserProfile() {
@@ -30,7 +35,9 @@ public class UserProfileController {
                     .body("No logged in user found");
         }
 
-        UserProfileDto userProfileDto = UserProfileDto.from(loggedInUser);
+        UserProfile userProfile = profileService.getUserProfileByAppUser(loggedInUser);
+
+        UserProfileDto userProfileDto = UserProfileDto.from(userProfile);
 
         return ResponseEntity.ok(userProfileDto);
     }

@@ -7,6 +7,7 @@ import com.probal.moddhobitto.core.auth.model.AppUserDetails;
 import com.probal.moddhobitto.core.auth.model.enums.AppUserRole;
 import com.probal.moddhobitto.core.auth.repository.AppUserRepository;
 import com.probal.moddhobitto.core.auth.util.JwtUtils;
+import com.probal.moddhobitto.core.userprofile.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -33,11 +35,14 @@ public class AuthService {
 
     private final JwtUtils jwtUtils;
 
+    private final UserProfileService userProfileService;
+
     public boolean isUserExists(String phone) {
         AppUser appUser = appUserRepository.findAppUserByPhone(phone).orElse(null);
         return appUser != null;
     }
 
+    @Transactional
     public void createAppUser(AppUserDto appUserDto) {
         AppUser appUser = new AppUser();
         appUser.setPhone(appUserDto.getPhone());
@@ -45,7 +50,8 @@ public class AuthService {
         appUser.setRoles(Collections.singleton(AppUserRole.APP_ROLE));
         appUser.setCreatedAt(new Date());
         appUser.setActive(true);
-        appUserRepository.save(appUser);
+        AppUser user = appUserRepository.save(appUser);
+        userProfileService.createUserProfileForAppUser(user);
     }
 
     public JwtResponse authenticateAppUser(AppUserDto loginRequest) {

@@ -1,6 +1,7 @@
 package com.probal.moddhobitto.api.user.dto;
 
 import com.probal.moddhobitto.core.auth.entity.AppUser;
+import com.probal.moddhobitto.core.userprofile.model.UserProfile;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,11 +15,11 @@ public class UserProfileDto {
 
     private String phoneNumber;
 
-    public static UserProfileDto from(AppUser appUser) {
+    public static UserProfileDto from(UserProfile userProfile) {
         return UserProfileDto.builder()
-                .firstName(appUser.getFirstName())
-                .lastName(appUser.getLastName())
-                .phoneNumber(appUser.getPhone())
+                .firstName(userProfile.getUser().getFirstName())
+                .lastName(userProfile.getUser().getLastName())
+                .phoneNumber(userProfile.getUser().getPhone())
                 .build();
     }
 
