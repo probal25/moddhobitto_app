@@ -1,6 +1,7 @@
 package com.probal.moddhobitto.core.userprofile.service;
 
 
+import com.probal.moddhobitto.api.user.dto.UserBalanceSheetDto;
 import com.probal.moddhobitto.core.auth.entity.AppUser;
 import com.probal.moddhobitto.core.expense.model.UserExpenseCategory;
 import com.probal.moddhobitto.core.userprofile.model.UserProfile;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,5 +43,19 @@ public class UserProfileService {
 
         userProfileRepository.save(userProfile);
 
+    }
+    public List<UserBalanceSheetDto> getUserBalanceSheet(AppUser loggedInUser) {
+        List<Object[]> userBalanceSheets = userProfileRepository.getUserBalanceSheetByUserId(loggedInUser.getId());
+        List<UserBalanceSheetDto> userBalanceSheetDtos = new ArrayList<>();
+        for (Object[] o : userBalanceSheets) {
+            UserBalanceSheetDto userBalanceSheetDto = UserBalanceSheetDto.builder()
+                    .amount((BigDecimal) o[2])
+                    .categoryName((String) o[0])
+                    .parentCategoryName((String) o[1])
+                    .build();
+            userBalanceSheetDtos.add(userBalanceSheetDto);
+        }
+
+        return userBalanceSheetDtos;
     }
 }

@@ -93,7 +93,7 @@ public class ExpenseController {
                     .body(ErrorResponse.create(bindingResult, HttpStatus.BAD_REQUEST.value()));
         }
 
-        return ResponseEntity.ok("Sub-Category Added");
+        return ResponseEntity.ok("Expense Details added successfully");
 
     }
 

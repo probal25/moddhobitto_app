@@ -42,4 +42,13 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileDto);
     }
 
+    @GetMapping("/user_balance_sheet")
+    @Operation(description = "Get user Balance Sheet")
+    public ResponseEntity<?> getUserBalanceSheet() {
+        AppUser loggedInUser = activeContextHolder.getLoggedInUser();
+
+        return ResponseEntity.ok(profileService.getUserBalanceSheet(loggedInUser));
+
+    }
+
 }
