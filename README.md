@@ -9,6 +9,6 @@ to run project enter these commands in terminal:
 mvn clean install
 mvn spring-boot:run
 ```
-##### project will run at port : 8000
+##### project will run at port: 8000
 
-### Swagger url : http://localhost:8000/swagger-ui/index.html
+### Swagger url (API Documentation) : http://localhost:8000/swagger-ui/index.html
