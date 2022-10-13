@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.probal</groupId>
     <artifactId>moddhobitto</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>v1</version>
     <packaging>war</packaging>
     <name>moddhobitto</name>
     <description>moddhobitto</description>
